@@ -1,8 +1,8 @@
 // vite.config.js
 import reactRefresh from '@vitejs/plugin-react-refresh';
-import vite from 'vite';
+import { defineConfig } from 'vite';
 
-const config = vite.defineConfig({
+const config = defineConfig({
   plugins: [reactRefresh()],
 });
 

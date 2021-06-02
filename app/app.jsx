@@ -31,7 +31,7 @@ import LanguageProvider from './containers/LanguageProvider';
 import configureStore from './configureStore';
 
 // Import i18n messages
-// import { translationMessages } from './i18n';  // ! Results in an Error 
+// import { translationMessages } from './i18n';  // ! Results in an Error
 
 // Create redux store with history
 const initialState = {};
@@ -51,17 +51,18 @@ const render = messages => {
   );
 };
 
-if (module.hot) {
-  // Hot reloadable React components and translation json files
-  // modules.hot.accept does not accept dynamic dependencies,
-  // have to be constants at compile-time
-  module.hot.accept(['./i18n', 'containers/App'], () => {
-    ReactDOM.unmountComponentAtNode(MOUNT_NODE);
-    // render(translationMessages); OLD CODE
-    // render({en: 'Temp'});
+// ! This results in error. Commented for now
+// if (module.hot) {
+// Hot reloadable React components and translation json files
+// modules.hot.accept does not accept dynamic dependencies,
+// have to be constants at compile-time
+// module.hot.accept(['./i18n', 'containers/App'], () => {
+//   ReactDOM.unmountComponentAtNode(MOUNT_NODE);
+// render(translationMessages); OLD CODE
+// render({en: 'Temp'});
 
-  });
-}
+//   });
+// }
 
 // Chunked polyfill for browsers without Intl support
 if (!window.Intl) {
@@ -69,12 +70,15 @@ if (!window.Intl) {
     resolve(import('intl'));
   })
     .then(() => Promise.all([import('intl/locale-data/jsonp/en.js')]))
-    .then(() => render(translationMessages))
+    // .then(() => render(translationMessages)) // ! This results in error. Commented for now
     .catch(err => {
       throw err;
     });
 } else {
-  render(translationMessages);
+  // render(translationMessages); // ! This results in error. Commented for now
+  render({
+    en: { hello: 'hello' },
+  });
 }
 
 // Install ServiceWorker and AppCache in the end since
