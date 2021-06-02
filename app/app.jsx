@@ -24,14 +24,14 @@ import LanguageProvider from './containers/LanguageProvider';
 
 // Load the favicon and the .htaccess file
 /* eslint-disable import/no-unresolved, import/extensions */
-import '!file-loader?name=[name].[ext]!./images/favicon.ico';
-import './file-loader?name=.htaccess!./.htaccess';
+// import '!file-loader?name=[name].[ext]!./images/favicon.ico';  // ! Error in this import
+// import './file-loader?name=.htaccess!./.htaccess'; // ! Error in this import
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import configureStore from './configureStore';
 
 // Import i18n messages
-import { translationMessages } from './i18n';
+// import { translationMessages } from './i18n';  // ! Results in an Error 
 
 // Create redux store with history
 const initialState = {};
@@ -57,7 +57,9 @@ if (module.hot) {
   // have to be constants at compile-time
   module.hot.accept(['./i18n', 'containers/App'], () => {
     ReactDOM.unmountComponentAtNode(MOUNT_NODE);
-    render(translationMessages);
+    // render(translationMessages); OLD CODE
+    // render({en: 'Temp'});
+
   });
 }
 
