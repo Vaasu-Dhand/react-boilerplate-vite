@@ -11,8 +11,12 @@ import messages from './messages';
 
 export default function HomePage() {
   return (
-    <h1>
+    <div>
       <FormattedMessage {...messages.header} />
-    </h1>
+      <h2>Welcome to my app!</h2>
+      <h3>Some more text</h3>
+      <h4>Another Heading</h4>
+      <h5>Some</h5>
+    </div>
   );
 }

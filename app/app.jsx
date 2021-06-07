@@ -52,17 +52,16 @@ const render = messages => {
 };
 
 // ! This results in error. Commented for now
-// if (module.hot) {
-// Hot reloadable React components and translation json files
-// modules.hot.accept does not accept dynamic dependencies,
-// have to be constants at compile-time
-// module.hot.accept(['./i18n', 'containers/App'], () => {
-//   ReactDOM.unmountComponentAtNode(MOUNT_NODE);
-// render(translationMessages); OLD CODE
-// render({en: 'Temp'});
-
-//   });
-// }
+if (import.meta.hot) {
+  // Hot reloadable React components and translation json files
+  // modules.hot.accept does not accept dynamic dependencies,
+  // have to be constants at compile-time
+  import.meta.hot.accept(['./i18n', 'containers/App'], () => {
+    ReactDOM.unmountComponentAtNode(MOUNT_NODE);
+    // render(translationMessages);
+    render({ en: 'Temp' });
+  });
+}
 
 // Chunked polyfill for browsers without Intl support
 if (!window.Intl) {
