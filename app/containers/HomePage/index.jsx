@@ -16,7 +16,6 @@ export default function HomePage() {
       <h2>Welcome to my app!</h2>
       <h3>Some more text</h3>
       <h4>Another Heading</h4>
-      <h5>Some</h5>
     </div>
   );
 }
