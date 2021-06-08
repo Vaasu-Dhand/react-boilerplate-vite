@@ -1,6 +1,6 @@
 /**
  *
- * Asynchronously loads the component for Temp
+ * Asynchronously loads the component for Header
  *
  */
 

@@ -18,16 +18,13 @@ import 'sanitize.css/sanitize.css';
 
 // Import root app
 import App from './containers/App';
-import Temp from './components/Temp';
-import Button from './Button'
 
 // Import Language Provider
 import LanguageProvider from './containers/LanguageProvider';
 
 // Load the favicon and the .htaccess file
 /* eslint-disable import/no-unresolved, import/extensions */
-// import '!file-loader?name=[name].[ext]!./images/favicon.ico';  // ! Error in this import
-// import './file-loader?name=.htaccess!./.htaccess'; // ! Error in this import
+// import '!file-loader?name=[name].[ext]!./images/favicon.ico';  // ! This won't work coz its a webpack plugin (we are loading the favicon from the index.html file)
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import configureStore from './configureStore';
@@ -46,8 +43,6 @@ const render = messages => {
       <LanguageProvider messages={messages}>
         <ConnectedRouter history={history}>
           <App />
-          <Temp />
-          <Button />
         </ConnectedRouter>
       </LanguageProvider>
     </Provider>,

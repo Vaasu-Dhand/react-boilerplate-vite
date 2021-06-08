@@ -1,6 +1,6 @@
 /**
  *
- * Tests for Temp
+ * Tests for Header
  *
  * @see https://github.com/react-boilerplate/react-boilerplate/tree/master/docs/testing
  *
@@ -8,14 +8,20 @@
 
 import React from 'react';
 import { render } from 'react-testing-library';
+import { IntlProvider } from 'react-intl';
 // import 'jest-dom/extend-expect'; // add some helpful assertions
 
-import Temp from '../index';
+import Header from '../index';
+import { DEFAULT_LOCALE } from '../../../i18n';
 
-describe('<Temp />', () => {
+describe('<Header />', () => {
   it('Expect to not log errors in console', () => {
     const spy = jest.spyOn(global.console, 'error');
-    render(<Temp />);
+    render(
+      <IntlProvider locale={DEFAULT_LOCALE}>
+        <Header />
+      </IntlProvider>,
+    );
     expect(spy).not.toHaveBeenCalled();
   });
 
@@ -31,7 +37,11 @@ describe('<Temp />', () => {
   it.skip('Should render and match the snapshot', () => {
     const {
       container: { firstChild },
-    } = render(<Temp />);
+    } = render(
+      <IntlProvider locale={DEFAULT_LOCALE}>
+        <Header />
+      </IntlProvider>,
+    );
     expect(firstChild).toMatchSnapshot();
   });
 });
