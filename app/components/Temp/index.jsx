@@ -9,7 +9,7 @@ import React from 'react';
 // import styled from 'styled-components';
 
 function Temp() {
-  return <div>Temp Callopmponent</div>;
+  return <div>Temp Callopmponent!</div>;
 }
 
 Temp.propTypes = {};
