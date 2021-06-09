@@ -9,12 +9,8 @@ const config = defineConfig({
   // * Server Config
   server: {
     port: 25500,
+    host: true, //  Network Host
   },
-  // build: {
-  //   watch: {
-  //     include: './app/**/**/*.*',
-  //   },
-  // },
 });
 
 export default config;

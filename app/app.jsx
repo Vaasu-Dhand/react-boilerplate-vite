@@ -24,7 +24,8 @@ import LanguageProvider from './containers/LanguageProvider';
 
 // Load the favicon and the .htaccess file
 /* eslint-disable import/no-unresolved, import/extensions */
-// import '!file-loader?name=[name].[ext]!./images/favicon.ico';  // ! This won't work coz its a webpack plugin (we are loading the favicon from the index.html file)
+// ! This won't work coz its a webpack plugin (we are loading the favicon from the index.html file)
+// import '!file-loader?name=[name].[ext]!./images/favicon.ico';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import configureStore from './configureStore';
