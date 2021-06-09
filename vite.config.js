@@ -1,11 +1,20 @@
 // vite.config.js
+import { defineConfig } from 'vite';
+// Plugins
 import reactRefresh from '@vitejs/plugin-react-refresh';
 import svgr from 'vite-plugin-svgr';
-import { defineConfig } from 'vite';
+import commonjs from '@rollup/plugin-commonjs';
 
 const config = defineConfig({
   root: 'app',
-  plugins: [reactRefresh(), svgr()],
+  plugins: [
+    reactRefresh(),
+    svgr(),
+    commonjs({
+      include: 'app/i18n.cjs',
+      namedExports: { 'react': ['createElement', 'Component'] },
+    }),
+  ],
   // * Server Config
   server: {
     port: 25500,

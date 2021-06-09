@@ -40,6 +40,13 @@ const translationMessages = {
   en: formatTranslationMessages('en', enTranslationMessages),
 };
 
+// export {
+//   appLocales,
+//   formatTranslationMessages,
+//   translationMessages,
+//   DEFAULT_LOCALE,
+// };
+
 exports.appLocales = appLocales;
 exports.formatTranslationMessages = formatTranslationMessages;
 exports.translationMessages = translationMessages;

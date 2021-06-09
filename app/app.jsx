@@ -25,13 +25,13 @@ import LanguageProvider from './containers/LanguageProvider';
 // Load the favicon and the .htaccess file
 /* eslint-disable import/no-unresolved, import/extensions */
 // ! This won't work coz its a webpack plugin (we are loading the favicon from the index.html file)
-// import '!file-loader?name=[name].[ext]!./images/favicon.ico';
+// import './images/favicon.ico';
 /* eslint-enable import/no-unresolved, import/extensions */
 
 import configureStore from './configureStore';
 
 // Import i18n messages
-// import { translationMessages } from './i18n';  // ! Results in an Error
+// import { translationMessages } from './i18n.cjs';  // ! Results in an Error coz this file is using commonjs
 
 // Create redux store with history
 const initialState = {};
@@ -80,6 +80,7 @@ if (!window.Intl) {
   });
 }
 
+// ! This need to be looked into as well. Its using require js
 // Install ServiceWorker and AppCache in the end since
 // it's not most important operation and if main code fails,
 // we do not want it installed
