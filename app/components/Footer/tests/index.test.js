@@ -12,7 +12,7 @@ import { IntlProvider } from 'react-intl';
 // import 'jest-dom/extend-expect'; // add some helpful assertions
 
 import Footer from '../index';
-import { DEFAULT_LOCALE } from '../../../i18n';
+import { DEFAULT_LOCALE } from '../../../i18n.mjs';
 
 describe('<Footer />', () => {
   it('Expect to not log errors in console', () => {

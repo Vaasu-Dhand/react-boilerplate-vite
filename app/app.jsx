@@ -31,9 +31,7 @@ import LanguageProvider from './containers/LanguageProvider';
 import configureStore from './configureStore';
 
 // Import i18n messages
-import { translationMessages } from './i18n.cjs';  // ! Results in an Error coz this file is using commonjs
-// import * as translationMessages from './i18n.cjs'
-console.log(translationMessages)
+import { translationMessages } from './i18n.mjs';
 
 // Create redux store with history
 const initialState = {};
@@ -53,15 +51,13 @@ const render = messages => {
   );
 };
 
-// ! This results in error. Commented for now
 if (import.meta.hot) {
   // Hot reloadable React components and translation json files
   // modules.hot.accept does not accept dynamic dependencies,
   // have to be constants at compile-time
   import.meta.hot.accept(['./i18n', 'containers/App'], () => {
     ReactDOM.unmountComponentAtNode(MOUNT_NODE);
-    // render(translationMessages);
-    render({ en: 'Temp' });
+    render(translationMessages);
   });
 }
 
@@ -71,15 +67,12 @@ if (!window.Intl) {
     resolve(import('intl'));
   })
     .then(() => Promise.all([import('intl/locale-data/jsonp/en.js')]))
-    // .then(() => render(translationMessages)) // ! This results in error. Commented for now
+    .then(() => render(translationMessages))
     .catch(err => {
       throw err;
     });
 } else {
-  // render(translationMessages); // ! This results in error. Commented for now
-  render({
-    en: { hello: 'hello' },
-  });
+  render(translationMessages);
 }
 
 // ! This need to be looked into as well. Its using require js

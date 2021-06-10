@@ -7,7 +7,7 @@ import { browserHistory } from 'react-router-dom';
 import ConnectedLanguageProvider, { LanguageProvider } from '../index';
 import configureStore from '../../../configureStore';
 
-import { translationMessages } from '../../../i18n';
+import { translationMessages } from '../../../i18n.mjs';
 
 const messages = defineMessages({
   someMessage: {

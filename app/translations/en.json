@@ -1,3 +1,6 @@
 {
-
+  "app.components.Footer.header": "This is the Footer component!",
+  "app.components.Header.header": "This is the Header component NEw edit",
+  "app.containers.HomePage.header": "This is the HomePage container!",
+  "app.containers.NotFoundPage.header": "This is the NotFoundPage container!"
 }

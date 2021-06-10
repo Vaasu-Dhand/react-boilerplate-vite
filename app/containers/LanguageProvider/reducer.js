@@ -6,11 +6,10 @@
 import produce from 'immer';
 
 import { CHANGE_LOCALE } from './constants';
-// import { DEFAULT_LOCALE } from '../../i18n'; // ! Results in an error
+import { DEFAULT_LOCALE } from '../../i18n.mjs';
 
 export const initialState = {
-  // locale: DEFAULT_LOCALE,  // * OLD Code
-  locale: 'en', // * Hardcoded here
+  locale: DEFAULT_LOCALE,
 };
 
 /* eslint-disable default-case, no-param-reassign */
