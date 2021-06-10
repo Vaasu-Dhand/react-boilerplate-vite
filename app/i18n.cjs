@@ -49,5 +49,8 @@ const translationMessages = {
 
 exports.appLocales = appLocales;
 exports.formatTranslationMessages = formatTranslationMessages;
-exports.translationMessages = translationMessages;
 exports.DEFAULT_LOCALE = DEFAULT_LOCALE;
+exports.translationMessages = translationMessages;
+
+// Default Export for this
+module.exports = translationMessages;

@@ -31,7 +31,9 @@ import LanguageProvider from './containers/LanguageProvider';
 import configureStore from './configureStore';
 
 // Import i18n messages
-// import { translationMessages } from './i18n.cjs';  // ! Results in an Error coz this file is using commonjs
+import { translationMessages } from './i18n.cjs';  // ! Results in an Error coz this file is using commonjs
+// import * as translationMessages from './i18n.cjs'
+console.log(translationMessages)
 
 // Create redux store with history
 const initialState = {};
